@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shokan.ai — Наследие Уалиханова</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #FDFBF7; color: #1A1A1A; font-family: 'Segoe UI', sans-serif; }
+        .hero-bg { background: linear-gradient(to bottom, #FDFBF7, #EAE3D2); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto">
+        <div class="text-2xl font-bold tracking-wider">SHOKAN<span class="text-yellow-600">.AI</span></div>
+        <div class="hidden md:flex space-x-6 text-sm font-semibold uppercase tracking-widest">
+            <a href="#gallery" class="hover:text-yellow-600">Экспедиции в рисунках</a>
+            <a href="#chat" class="hover:text-yellow-600">Диалог с Шоканом</a>
+        </div>
+    </nav>
+
+    <section class="hero-bg py-20 text-center px-4">
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-6 max-w-4xl mx-auto leading-tight">
+            История Великой Степи <br/> в линиях и штрихах
+        </h1>
+        <p class="text-lg md:text-xl text-gray-700 mb-10 max-w-2xl mx-auto">
+            Изучите подлинные этнографические зарисовки Шокана Уалиханова и узнайте тайны его экспедиций через оживленные аудио-истории.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="#gallery" class="bg-black text-white px-8 py-4 rounded-full font-semibold hover:bg-gray-800 transition shadow-lg">Смотреть галерею</a>
+            <a href="#chat" class="border-2 border-black px-8 py-4 rounded-full font-semibold hover:bg-black hover:text-white transition shadow-lg">Задать вопрос ИИ</a>
+        </div>
+    </section>
+
+
+<section id="gallery" class="py-12 px-4 bg-[#FDFBF7]">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl font-black mb-6 text-center text-gray-900 tracking-tight uppercase italic">Великий Путь: Шаг за Шагом</h2>
+        <p class="text-center text-gray-500 mb-10 font-medium">Пройдите этапы жизни Шокана последовательно, чтобы открыть его финальное наследие.</p>
+        
+        <div class="relative w-full aspect-[16/9] bg-[#E8DCC4] rounded-[50px] shadow-2xl border-[12px] border-[#D7C7A8] overflow-hidden" id="mapBox">
+            <div class="absolute inset-0 opacity-30 mix-blend-multiply pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')]"></div>
+
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 800 450">
+                <path d="M 280,0 Q 300,100 520,180" fill="none" stroke="#5F9EA0" stroke-width="3" opacity="0.3" /> 
+                <path d="M 520,450 Q 530,350 540,280" fill="none" stroke="#5F9EA0" stroke-width="3" opacity="0.3" />
+                
+                <path id="line1" d="M 280,105 L 515,185" fill="none" stroke="#8B4513" stroke-width="2" stroke-dasharray="5,5" class="opacity-0 transition-opacity duration-1000" />
+                <path id="line2" d="M 535,210 L 525,270" fill="none" stroke="#8B4513" stroke-width="2" stroke-dasharray="5,5" class="opacity-0 transition-opacity duration-1000" />
+                <path id="line3" d="M 525,290 L 500,320" fill="none" stroke="#8B4513" stroke-width="2" stroke-dasharray="5,5" class="opacity-0 transition-opacity duration-1000" />
+                <path id="line4" d="M 500,345 L 510,380" fill="none" stroke="#8B4513" stroke-width="2" stroke-dasharray="5,5" class="opacity-0 transition-opacity duration-1000" />
+                <path id="line5" d="M 525,405 L 630,425" fill="none" stroke="#B22222" stroke-width="3" stroke-dasharray="10,5" class="opacity-0 transition-opacity duration-1000" />
+                <path id="line6" d="M 650,410 Q 750,300 560,155" fill="none" stroke="#4682B4" stroke-width="2" stroke-dasharray="8,4" class="opacity-0 transition-opacity duration-1000" />
+
+                <text x="350" y="130" fill="#5D4037" font-size="11" font-weight="bold">1854 г.</text>
+                <text x="545" y="240" fill="#5D4037" font-size="11" font-weight="bold">1856 г.</text>
+                <text x="550" y="440" fill="#B22222" font-size="13" font-weight="bold">1858-1859 гг.</text>
+                
+                <text id="returnYear" x="660" y="280" fill="#4682B4" font-size="12" font-weight="bold" class="opacity-0 transition-opacity duration-1000 tracking-widest">1860 г. ВОЗВРАЩЕНИЕ</text>
+            </svg>
+
+            <div class="absolute top-[18%] left-[32%] text-center">
+                <button id="btn1" onclick="showArt(1)" class="w-10 h-10 bg-[#A0522D] rounded-full border-4 border-white shadow-xl hover:scale-110 transition flex items-center justify-center text-white text-xs font-bold">I</button>
+                <p class="mt-2 text-[10px] font-black uppercase text-gray-800">Омск</p>
+            </div>
+
+            <div class="absolute top-[38%] left-[63%] text-center">
+                <button id="btn2" onclick="showArt(2)" class="w-10 h-10 bg-gray-400 rounded-full border-4 border-white shadow-xl transition flex items-center justify-center text-white text-xs font-bold">II</button>
+                <p class="mt-2 text-[10px] font-black uppercase text-gray-500">Семей</p>
+            </div>
+
+            <div class="absolute top-[58%] left-[64%] text-center">
+                <button id="btn3" onclick="showArt(3)" class="w-10 h-10 bg-gray-400 rounded-full border-4 border-white shadow-xl transition flex items-center justify-center text-white text-xs font-bold">III</button>
+                <p class="text-[9px] font-bold mt-1 text-gray-500">Жетысу</p>
+            </div>
+
+            <div class="absolute top-[70%] left-[60%] text-center">
+                <button id="btn4" onclick="showArt(4)" class="w-10 h-10 bg-gray-400 rounded-full border-4 border-white shadow-xl transition flex items-center justify-center text-white text-xs font-bold">IV</button>
+                <p class="text-[9px] font-bold mt-1 text-gray-500">Верный</p>
+            </div>
+
+            <div class="absolute top-[82%] left-[61%] text-center">
+                <button id="btn7" onclick="showArt(7)" class="w-10 h-10 bg-gray-400 rounded-full border-4 border-white shadow-xl transition flex items-center justify-center text-white text-xs font-bold">V</button>
+                <p class="text-[9px] font-bold mt-1 text-gray-500">Иссык-Куль</p>
+            </div>
+
+           <div class="absolute top-[88%] right-[18%] text-center">
+                <button id="btn5" onclick="showArt(5)" class="w-14 h-14 bg-gray-400 rounded-full border-4 border-white shadow-2xl transition flex items-center justify-center text-white font-black text-xl">V</button>
+                <p class="mt-2 text-[12px] font-black uppercase text-gray-400 bg-white/30 px-2 rounded">Кашгар</p>
+            </div>
+
+            <div class="absolute top-[28%] left-[63%] text-center">
+                <button id="btn6" onclick="showArt(6)" class="w-12 h-12 bg-gray-600 rounded-full border-4 border-white shadow-xl transition flex items-center justify-center text-white text-lg">🔒</button>
+                <p class="mt-2 text-[10px] font-black uppercase text-gray-500 italic">VII. Наследие</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="artModal" class="fixed inset-0 bg-black/95 z-[100] hidden flex items-center justify-center p-4 backdrop-blur-lg">
+    <div class="bg-[#FDFBF7] w-full max-w-6xl h-full max-h-[88vh] rounded-[40px] overflow-hidden shadow-2xl relative flex flex-col md:flex-row border-4 border-[#D7C7A8]">
+        <button onclick="closeModal()" class="absolute top-6 right-6 z-[110] w-12 h-12 bg-black text-white rounded-full text-3xl hover:bg-red-700 transition">&times;</button>
+        
+        <div class="md:w-1/2 h-1/2 md:h-full bg-[#E8DCC4] relative flex items-center justify-center p-8">
+            <img id="modalImg" src="" class="max-w-full max-h-full object-contain rounded-2xl shadow-2xl transition-all duration-500">
+            <div id="navControls" class="absolute inset-x-0 bottom-8 flex justify-between px-12">
+                <button onclick="prevSlide()" class="bg-black/80 text-white w-14 h-14 rounded-full hover:bg-yellow-700 transition">←</button>
+                <div id="slideCounter" class="bg-black/40 text-white px-6 py-2 rounded-full text-sm font-bold flex items-center">1 / 1</div>
+                <button onclick="nextSlide()" class="bg-black/80 text-white w-14 h-14 rounded-full hover:bg-yellow-700 transition">→</button>
+            </div>
+        </div>
+        
+        <div class="md:w-1/2 p-10 md:p-14 overflow-y-auto flex flex-col bg-white text-left">
+            <div class="mb-6">
+                <span id="slideTag" class="text-[10px] font-black uppercase text-yellow-600 tracking-widest bg-yellow-50 px-4 py-1 rounded-full">ЭТАП ПУТИ</span>
+                <h3 id="modalTitle" class="text-4xl font-black mt-4 text-gray-900 leading-tight"></h3>
+            </div>
+            <div class="flex-grow font-serif italic text-xl leading-relaxed text-gray-700 space-y-4" id="historyText"></div>
+            
+            <div id="audioPlayer" class="mt-8 p-6 bg-gray-50 rounded-[35px] border border-gray-100">
+                <button id="voiceBtn" onclick="toggleSpeech()" class="w-full bg-black text-white py-5 rounded-full font-black flex items-center justify-center gap-4 hover:bg-yellow-700 transition">
+                    <span id="voiceIcon">▶</span> <span id="voiceText">Слушать главу</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let currentId = null;
+    let currentSlide = 0;
+    let unlockedLevel = 1; // УРОВЕНЬ ДОСТУПА (1-7)
+    const synth = window.speechSynthesis;
+    let isSpeaking = false, isPaused = false;
+
+    // СТРУКТУРА ДАННЫХ (ID соответствуют порядку открытия)
+   const artData = {
+        1: { nextId: 2, line: 'line1', slides: [
+            { 
+                title: "I. Омск: Рождение Исследователя", 
+                img: "img/1.jpg", 
+                tag: "1847-1853", 
+                text: "В двенадцать лет Шокан попал в Сибирский кадетский корпус. Здесь он, степной мальчик, столкнулся с миром науки.Здесь его знаменитный автопортрет ." 
+            },
+            { 
+                title: "Омск: Секреты мастерства", 
+                img: "img/1_sketch.jpg", 
+                tag: "РИСУНКИ", 
+                text: "Шокан обладал уникальной фотографической памятью. Он мог один раз взглянуть на сложнейший орнамент или деталь старинного оружия и спустя часы воспроизвести их на бумаге до мельчайшего завитка. В Омске он начал собирать свой первый визуальный архив, понимая, что культура Степи нуждается в документальном сохранении." 
+            }
+        ]},
+        2: { nextId: 3, line: 'line2', slides: [
+            { 
+                title: "II. Семей: Встреча Гениев", 
+                img: "img/1_extra.jpg", 
+                tag: "1854 г.", 
+                text: "После выпуска Шокан прибывает в Семипалатинск. Именно здесь происходит историческое знакомство с Фёдором Достоевским. Писатель, только что вышедший с каторги, нашел в 19-летнем Шокане родственную душу. Достоевский писал ему: 'Я никогда ни к кому не чувствовал такого влечения, как к Вам'. Эта дружба превратила молодого корнета в глубокого мыслителя и гуманиста." 
+            }
+        ]},
+        3: { nextId: 4, line: 'line3', slides: [
+            { 
+                title: "III. Жетысу: Путь через Врата", 
+                img: "img/2.jpg", 
+                tag: "1856 г.", 
+                text: "Экспедиция к Джунгарскому Алатау стала первым боевым крещением Шокана-ученого. Он прошел через легендарные 'Джунгарские ворота' — природный коридор, через который веками двигались великие переселения народов. Шокан задокументировал ландшафт с такой точностью, что его карты использовались географами еще полвека." 
+            },
+            { 
+                title: "Горы и Люди", 
+                img: "img/2_extra.jpg", 
+                tag: "ТЯНЬ-ШАНЬ", 
+                text: "В походах по Семиречью Шокан не просто рисовал горы. Он записывал предания каждого камня и каждой реки. Он столкнулся с невероятной суровостью природы, но его карандаш не дрогнул — он создал первые профессиональные пейзажи казахской земли, наполненные воздухом и величием." 
+            }
+        ]},
+        4: { nextId: 7, line: 'line4', slides: [
+            { 
+                title: "IV. Верный: Дипломатия и Честь", 
+                img: "img/3.jpg", 
+                tag: "1856 г.", 
+                text: "В укреплении Верный (будущий Алматы) Шокан выступает как блестящий дипломат. Ему удалось завоевать доверие султана Тезека и других влиятельных правителей Степи. Этот портрет султана — символ того, как Шокан умел 'разговорить' человека. Султан позировал ему часами, делясь тайнами истории своего рода, которые Шокан бережно заносил в дневники." 
+            }
+        ]},
+        7: { nextId: 5, line: 'line5', slides: [
+            { 
+                title: "V. Иссык-Куль: Степная Илиада", 
+                img: "img/4.jpg", 
+                tag: "1857 г.", 
+                text: "На берегах 'Небесного озера' Шокан совершил мировой научный прорыв — он первым записал и проанализировал великий эпос 'Манас'. Он назвал его энциклопедией кочевого духа. Шокан слушал сказителей ночи напролет, понимая, что перед ним разворачивается история целого народа, которую нужно спасти от забвения." 
+            },
+            { 
+                title: "Иссык-кульские кыргызы", 
+                img: "img/4_extra.jpg", 
+                tag: "ЛИЦА КРАЯ", 
+                text: "На этом рисунке — иссык-кульские кыргызы. Посмотри, как точно Шокан передал их гордую осанку и детали национальной одежды. Он видел в них не просто 'объекты исследования', а свободолюбивый народ с древними корнями. Эти портреты — единственные документальные свидетельства облика людей того времени в этом регионе." 
+            }
+        ]},
+        5: { nextId: 6, line: 'line6', slides: [
+            { 
+                title: "VI. Кашгар: Миссия Алимбая", 
+                img: "img/5.jpg", 
+                tag: "1858-1859", 
+                text: "Это был смертельный риск. Под видом купца Алимбая Шокан проник в закрытый Кашгар, где за шпионаж казнили без суда. Он жил в страхе разоблачения, но каждое утро тайно делал записи. Его рисунки Кашгарии стали мировой сенсацией — Европа впервые увидела этот закрытый регион глазами профессионального исследователя." 
+            },
+            { 
+                title: "Тайный дневник: Лица в чалмах", 
+                img: "img/5_extra.jpg", 
+                tag: "ПОД ПРИКРЫТИЕМ", 
+                text: "Эти 'лица в чалмах' — уникальный архив. Шокан тайно зарисовывал людей на базарах и в чайханах, фиксируя антропологические черты кашгарцев. Он рисовал на клочках бумаги, которые прятал в двойном дне сундука. Эти наброски — свидетельство его невероятного мужества: любая случайная взглянувшая на него стража могла стоить ему головы." 
+            },
+            { 
+                title: "Побег и триумф", 
+                img: "img/5_escape.jpg", 
+                tag: "СПАСЕНИЕ", 
+                text: "Когда тучи над 'купцом Алимбаем' сгустились, Шокан бежал. Через ледяные перевалы, теряя лошадей, он вывез самое ценное — свои дневники. Его отчет о Кашгаре позже читали монархи и ученые по всему миру." 
+            }
+        ]},
+        6: { nextId: null, line: null, slides: [
+            { 
+                title: "VII. Семей: Вечное Наследие", 
+                img: "img/6.jpg", 
+                tag: "1860-1865", 
+                text: "Финальная глава. Вернувшись в Семипалатинск, Шокан систематизировал свои труды. Он стал мостом между двумя мирами. Его жизнь оборвалась рано, в 30 лет, но он успел зажечь свет знаний, который не гаснет до сих пор. Его рисунки и записи — это фундамент, на котором стоит современная история Великой Степи." 
+            }
+        ]}
+    };
+    function showArt(id) {
+        // ПРОВЕРКА ДОСТУПА
+        const levelMap = {1:1, 2:2, 3:3, 4:4, 7:5, 5:6, 6:7}; // Маппинг ID к уровню прогресса
+        
+        if (levelMap[id] > unlockedLevel) {
+            alert("ДОСТУП ЗАКРЫТ. Пройдите предыдущий этап пути Шокана!");
+            return;
+        }
+
+        currentId = id;
+        currentSlide = 0;
+        updateContent();
+        document.getElementById('artModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+        document.getElementById('artModal').classList.add('hidden');
+        resetSpeechUI();
+
+        // ЛОГИКА ОТКРЫТИЯ СЛЕДУЮЩЕГО ЭТАПА
+        const currentData = artData[currentId];
+        const levelMap = {1:1, 2:2, 3:3, 4:4, 7:5, 5:6, 6:7};
+        
+        if (levelMap[currentId] === unlockedLevel && currentData.nextId) {
+            unlockedLevel++;
+            unlockNextPoint(currentData.nextId, currentData.line);
+        }
+    }
+
+    function unlockNextPoint(nextId, lineId) {
+        const btn = document.getElementById('btn' + nextId);
+        const line = document.getElementById(lineId);
+        
+        if (btn) {
+            if (nextId === 5) {
+                // Делаем Кашгар красным и прыгающим
+                btn.classList.replace('bg-gray-400', 'bg-red-700');
+                btn.classList.add('animate-bounce');
+            } else if (nextId === 6) {
+                // Делаем Финал синим и показываем год
+                btn.classList.replace('bg-gray-600', 'bg-blue-800');
+                btn.innerText = "VII";
+                document.getElementById('returnYear').classList.replace('opacity-0', 'opacity-100');
+            } else {
+                // Остальные точки золотые
+                btn.classList.replace('bg-gray-400', 'bg-[#A0522D]');
+            }
+            btn.classList.add('point-pulse');
+        }
+        if (line) line.classList.replace('opacity-0', 'opacity-100');
+    }
+
+    function updateContent() {
+        const slide = artData[currentId].slides[currentSlide];
+        document.getElementById('modalImg').src = slide.img;
+        document.getElementById('modalTitle').innerText = slide.title;
+        document.getElementById('historyText').innerText = slide.text;
+        document.getElementById('slideTag').innerText = slide.tag;
+        document.getElementById('slideCounter').innerText = `${currentSlide + 1} / ${artData[currentId].slides.length}`;
+        resetSpeechUI();
+    }
+
+    function nextSlide() { currentSlide = (currentSlide + 1) % artData[currentId].slides.length; updateContent(); }
+    function prevSlide() { currentSlide = (currentSlide - 1 + artData[currentId].slides.length) % artData[currentId].slides.length; updateContent(); }
+
+    function toggleSpeech() {
+        if (!isSpeaking) startSpeech();
+        else if (isPaused) resumeSpeech();
+        else pauseSpeech();
+    }
+
+    function startSpeech() {
+        synth.cancel();
+        const utterance = new SpeechSynthesisUtterance(document.getElementById('historyText').innerText);
+        utterance.rate = 0.85; utterance.pitch = 0.75;
+        utterance.onend = () => resetSpeechUI();
+        synth.speak(utterance);
+        isSpeaking = true; isPaused = false;
+        updateSpeechUI('⏸', 'Пауза');
+    }
+
+    function pauseSpeech() { synth.pause(); isPaused = true; updateSpeechUI('▶', 'Продолжить'); }
+    function resumeSpeech() { synth.resume(); isPaused = false; updateSpeechUI('⏸', 'Пауза'); }
+    function resetSpeechUI() { synth.cancel(); isSpeaking = false; isPaused = false; updateSpeechUI('▶', 'Слушать'); }
+    function updateSpeechUI(icon, text) { document.getElementById('voiceIcon').innerText = icon; document.getElementById('voiceText').innerText = text; }
+</script>
+
+<style>
+    .point-pulse { animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(160, 82, 45, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(160, 82, 45, 0); } 100% { box-shadow: 0 0 0 0 rgba(160, 82, 45, 0); } }
+</style>
+
+    <section id="chat" class="py-20 bg-gray-900 text-white px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-extrabold mb-6 text-yellow-500">Виртуальный Шокан</h2>
+            <p class="mb-10 text-gray-400 text-lg">Спроси его о Кашгарии, дружбе с Достоевским или технике рисования.</p>
+            
+            <div class="bg-gray-800 w-full rounded-3xl overflow-hidden shadow-2xl p-12 flex flex-col items-center justify-center border border-gray-700">
+                <div class="w-24 h-24 bg-gray-700 rounded-full flex items-center justify-center mb-6 border-4 border-yellow-600 shadow-[0_0_15px_rgba(202,138,4,0.3)]">
+                    <svg class="w-12 h-12 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                </div>
+                <h3 class="text-3xl font-bold mb-3 text-white">ИИ-Ассистент готов</h3>
+                <p class="text-gray-400 mb-10 max-w-md text-center">Для стабильной работы нейросети чат откроется в безопасном полноэкранном приложении.</p>
+                
+                <a href="https://cmnk72r1a006q0bjvd8es2hly.zapier.app/" target="_blank" class="bg-yellow-600 text-white px-10 py-5 rounded-full font-bold text-xl hover:bg-yellow-500 hover:scale-105 transition-all shadow-[0_0_30px_rgba(202,138,4,0.4)] flex items-center gap-3">
+                    Открыть чат с Шоканом
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+  <footer class="bg-black text-gray-400 py-8 text-center text-sm">
+        <p>© 2026 Shokan.ai — ВКазГТК.</p>
+    </footer>
+
+          
+ 
+</body>
+</html>
